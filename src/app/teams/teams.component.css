@@ -1,0 +1,22 @@
+h2 {
+  margin: 0 0 2em 0;
+  padding: 0;
+  width: 15em;
+}
+.teams {
+  padding: 1%;
+  background: #efefef;
+}
+.teams-list {
+  width: 100%;
+  display: grid;
+
+  gap: 10px;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+.teams-list-item {
+  /*margin: 20px;*/
+}
+.mat-card-image {
+  height: 100px;
+}

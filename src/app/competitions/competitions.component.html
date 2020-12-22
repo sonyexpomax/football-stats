@@ -1,0 +1,37 @@
+<h2>Competitions</h2>
+
+<div class="competitions">
+  <div class="competitions-list">
+
+    <div *ngFor="let competition of competitions" class="competitions-list-item">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+            <img mat-card-image src="{{competition.area.ensignUrl}}" alt="{{competition.area.name}}">
+          </div>
+          <mat-card-title>{{competition.name}}</mat-card-title>
+          <mat-card-subtitle>{{competition.area.name}} ({{competition.area.countryCode}})</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p *ngIf="competition.currentSeason">
+            Season Starts on {{competition.currentSeason.startDate}} and ends on {{competition.currentSeason.endDate}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink="/competitions/{{competition.id}}">
+            <button mat-button>Teams</button>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+
+<!--      <a routerLink="/detail/{{team.id}}">-->
+<!--        <span>{{team.full_name}}</span>-->
+<!--      </a>-->
+<!--      <div>{{team.city}}</div>-->
+<!--      <div>{{team.conference}}</div>-->
+<!--      <div>{{team.division}}</div>-->
+    </div>
+
+  </div>
+</div>
+

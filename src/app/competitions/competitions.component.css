@@ -1,0 +1,39 @@
+h2 {
+  margin: 0 0 2em 0;
+  padding: 0;
+  width: 15em;
+}
+.competitions {
+  padding: 1%;
+  background: #efefef;
+}
+.competitions-list {
+  width: 100%;
+  display: grid;
+
+  gap: 10px;
+  grid-template-columns: auto auto auto;
+}
+.competitions-list-item {
+  /*margin: 20px;*/
+}
+
+.competitions-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.mat-card-avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: unset!important;
+  overflow: hidden;
+}
+
+.mat-card-image {
+  height: 32px;
+  width: 33px;
+  margin: 0!important;
+  padding: 0;
+
+}
