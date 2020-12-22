@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { TeamsComponent } from './teams/teams.component';
+import { ScoresComponent } from './scores/scores.component';
 import { CompetitionsComponent } from './competitions/competitions.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -23,7 +19,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http: HttpClient) {
-  console.log(http)
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 export function initTranslation(translate: TranslateService) {
@@ -65,7 +60,8 @@ export function initTranslation(translate: TranslateService) {
     CompetitionsComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    ScoresComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [
