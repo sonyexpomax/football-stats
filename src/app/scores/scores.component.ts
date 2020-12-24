@@ -23,7 +23,6 @@ export class ScoresComponent implements OnInit {
 
   getScores(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id)
     this.scoresService.getScores(id)
     .subscribe(data => this.scores = data.matches);
   }
