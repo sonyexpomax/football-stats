@@ -25,9 +25,6 @@ export class CompetitionsService {
     return this.http.get<any>(this.competitionsUrl, {
       headers: {'X-Auth-Token': '4ae8565177dc4711b4144baa0d7a5349'}
     })
-      .pipe(
-        catchError(this.handleError<CompetitionsResponse>('deleteHero'))
-    );
   }
 
 

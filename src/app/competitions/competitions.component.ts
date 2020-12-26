@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Competition } from 'src/app/services/competitions/types';
 import { CompetitionsService } from 'src/app/services/competitions/competitions.service';
+import { finalize } from 'rxjs/operators';
 
 const availableCompetitions = [
   2001,
@@ -23,15 +24,20 @@ const availableCompetitions = [
 
 export class CompetitionsComponent implements OnInit {
   competitions: Array<Competition>;
+  isLoading = false
 
-  constructor(private teamsService: CompetitionsService) { }
+  constructor(
+    private teamsService: CompetitionsService,
+  ) { }
 
   ngOnInit() {
     this.getTeams();
   }
 
-  getTeams(): void {
+  getTeams(): void {    
+    this.isLoading = true;
     this.teamsService.getCompetitions()
+    .pipe(finalize(() => this.isLoading = false))
     .subscribe(data => this.competitions = data.competitions.filter(i => !!i.area.ensignUrl && availableCompetitions.includes(i.id)));
   }
 

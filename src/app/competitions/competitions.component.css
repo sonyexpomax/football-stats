@@ -6,6 +6,7 @@ h2 {
 .competitions {
   padding: 1%;
   background: #efefef;
+  position: relative;
 }
 .competitions-list {
   width: 100%;
@@ -14,10 +15,6 @@ h2 {
   gap: 10px;
   grid-template-columns: auto auto auto;
 }
-.competitions-list-item {
-  /*margin: 20px;*/
-}
-
 .competitions-image {
   display: flex;
   justify-content: center;

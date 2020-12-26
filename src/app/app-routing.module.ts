@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
-  { path: 'competitions/:id/scores', component: ScoresComponent },
-  { path: 'competitions/:id', component: TeamsComponent },
+  { path: 'scores/:id', component: ScoresComponent },
+  { path: 'teams/:id', component: TeamsComponent },
   { path: 'competitions', component: CompetitionsComponent }
 ];
 

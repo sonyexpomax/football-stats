@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { TeamsComponent } from './teams/teams.component';
+import { LoaderComponent } from './common/loader/loader.component';
 import { ScoresComponent } from './scores/scores.component';
 import { CompetitionsComponent } from './competitions/competitions.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
@@ -17,6 +18,7 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +34,7 @@ export function initTranslation(translate: TranslateService) {
 @NgModule({
   imports: [
     MatCardModule,
+    MatProgressSpinnerModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -61,7 +64,8 @@ export function initTranslation(translate: TranslateService) {
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    ScoresComponent
+    ScoresComponent,
+    LoaderComponent,
   ],
   bootstrap: [ AppComponent ],
   providers: [

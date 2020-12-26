@@ -1,8 +1,11 @@
 <h2>Competitions</h2>
 
 <div class="competitions">
-  <div class="competitions-list">
+  <div *ngIf="isLoading">
+    <loader></loader>
+  </div>
 
+  <div class="competitions-list">
     <div *ngFor="let competition of competitions" class="competitions-list-item">
       <mat-card class="example-card">
         <mat-card-header>
@@ -18,23 +21,15 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <a routerLink="/competitions/{{competition.id}}">
+          <a routerLink="/teams/{{competition.id}}">
             <button mat-button>Teams</button>
           </a>
-          <a routerLink="/competitions/{{competition.id}}/scores">
+          <a routerLink="/scores/{{competition.id}}">
             <button mat-button>Scores</button>
           </a>
         </mat-card-actions>
       </mat-card>
-
-<!--      <a routerLink="/detail/{{team.id}}">-->
-<!--        <span>{{team.full_name}}</span>-->
-<!--      </a>-->
-<!--      <div>{{team.city}}</div>-->
-<!--      <div>{{team.conference}}</div>-->
-<!--      <div>{{team.division}}</div>-->
     </div>
-
   </div>
 </div>
 
