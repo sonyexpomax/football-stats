@@ -23,7 +23,7 @@ h2 {
   justify-content: center;
   width: 100%;
 }
-.mat-card-avatar {
+.competition-header-image {
   height: 32px;
   width: 32px;
   border-radius: unset!important;
@@ -36,4 +36,8 @@ h2 {
   margin: 0!important;
   padding: 0;
 
+}
+
+.example-header-image {
+  width: 50px;
 }

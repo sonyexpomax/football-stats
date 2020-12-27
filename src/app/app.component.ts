@@ -21,12 +21,11 @@ export class AppComponent {
     private router: Router,
     public translate: TranslateService
   ) {
-    translate.addLangs(['en', 'nl']);
+    translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('en');
   }
   switchLang(lang: string) {
     this.translate.use(lang);
-    console.log(this.translate);
   }
 
   ngOnInit() {

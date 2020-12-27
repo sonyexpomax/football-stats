@@ -1,4 +1,4 @@
-<h2>Competitions</h2>
+<h2>{{'competitions' | translate}}</h2>
 
 <div class="competitions">
   <div *ngIf="isLoading">
@@ -7,9 +7,9 @@
 
   <div class="competitions-list">
     <div *ngFor="let competition of competitions" class="competitions-list-item">
-      <mat-card class="example-card">
+      <mat-card>
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image">
+          <div mat-card-avatar class="competition-header-image">
             <img mat-card-image src="{{competition.area.ensignUrl}}" alt="{{competition.area.name}}">
           </div>
           <mat-card-title>{{competition.name}}</mat-card-title>
