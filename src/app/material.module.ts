@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
+import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    CdkTableModule
   ],
   exports: [
     MatProgressSpinnerModule,
@@ -33,7 +35,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    CdkTableModule
   ],
 })
 

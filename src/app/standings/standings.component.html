@@ -1,0 +1,40 @@
+<table cdk-table [dataSource]="teams">
+  <ng-container cdkColumnDef="position">
+    <th cdk-header-cell *cdkHeaderCellDef>No.</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.position}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="name">
+    <th cdk-header-cell *cdkHeaderCellDef> Name </th>
+    <td cdk-cell *cdkCellDef="let team">{{team.team.name}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="points">
+    <th cdk-header-cell *cdkHeaderCellDef>points</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.points}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="form">
+    <th cdk-header-cell *cdkHeaderCellDef>form</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.form}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="playedGames">
+    <th cdk-header-cell *cdkHeaderCellDef>playedGames</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.playedGames}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="won">
+    <th cdk-header-cell *cdkHeaderCellDef>won</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.won}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="draw">
+    <th cdk-header-cell *cdkHeaderCellDef>draw</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.draw}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="lost">
+    <th cdk-header-cell *cdkHeaderCellDef>lost</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.lost}}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="goals">
+    <th cdk-header-cell *cdkHeaderCellDef>goals</th>
+    <td cdk-cell *cdkCellDef="let team">{{team.goalsFor}}-{{team.goalsAgainst}}</td>
+  </ng-container>
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+</table>
