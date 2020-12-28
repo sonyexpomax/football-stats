@@ -1,3 +1,6 @@
 {
-  "competitions": "Соревнования"
+  "competitions": "Соревнования",
+  "teams": "Команды",
+  "scores": "Результаты",
+  "season_starts": "Сезон в {{name}} начинается {{start}} и заканчивается {{end}}"
 }

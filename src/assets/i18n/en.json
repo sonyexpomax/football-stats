@@ -1,3 +1,6 @@
 {
-  "competitions": "Competitions"
+  "competitions": "Competitions",
+  "teams": "Teams",
+  "scores": "Scores",
+  "season_starts": "Season in {{name}} starts on {{start}} and ends on {{end}}"
 }

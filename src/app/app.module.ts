@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeamsComponent } from './teams/teams.component';
 import { ScoresComponent } from './scores/scores.component';
-import { LanguagesComponent } from './languages/languages.component';
 import { CompetitionsModule } from './competitions/competitions.module';
 import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -48,8 +47,6 @@ export function initTranslation(translate: TranslateService) {
     ],
     declarations: [
         AppComponent,
-        LanguagesComponent,
-        // LoaderComponent,
         TeamsComponent,
         ScoresComponent,
     ],
@@ -62,7 +59,7 @@ export function initTranslation(translate: TranslateService) {
             multi: true
         },
     ],
-    exports: [],
+  exports: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 

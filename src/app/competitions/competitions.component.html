@@ -14,16 +14,16 @@
         </mat-card-header>
         <mat-card-content>
           <p *ngIf="competition.currentSeason">
-            Season Starts on {{competition.currentSeason.startDate}} and ends on {{competition.currentSeason.endDate}}
+            {{'season_starts' | translate: {
+              name: competition.name,
+              start: competition.currentSeason.startDate | date,
+              end: competition.currentSeason.endDate | date
+            } }}
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <a routerLink="/teams/{{competition.id}}">
-            <button mat-button>Teams</button>
-          </a>
-          <a routerLink="/scores/{{competition.id}}">
-            <button mat-button>Scores</button>
-          </a>
+          <a color="primary" mat-button routerLink="/teams/{{competition.id}}">{{'teams' | translate}}</a>
+          <a color="primary" mat-button routerLink="/scores/{{competition.id}}">{{'scores' | translate}}</a>
         </mat-card-actions>
       </mat-card>
     </div>
