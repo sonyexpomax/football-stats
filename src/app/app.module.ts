@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeamsComponent } from './teams/teams.component';
-import { LoaderComponent } from './common/loader/loader.component';
 import { ScoresComponent } from './scores/scores.component';
 import { LanguagesComponent } from './languages/languages.component';
 import { CompetitionsModule } from './competitions/competitions.module';
@@ -12,7 +11,7 @@ import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angu
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';;
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './layout/layout.module';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -28,43 +27,43 @@ export function initTranslation(translate: TranslateService) {
 }
 
 @NgModule({
-  imports: [
-    LayoutModule,
-    CompetitionsModule,
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
+    imports: [
+        LayoutModule,
+        CompetitionsModule,
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpClientModule,
 
-    BrowserAnimationsModule
-  ],
-  declarations: [
-    AppComponent,
-    LanguagesComponent,
-    LoaderComponent,
-    TeamsComponent,
-    ScoresComponent,
-  
-  ],
-  bootstrap: [ AppComponent ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initTranslation,
-      deps: [TranslateService],
-      multi: true
-    },
-  ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+        TranslateModule.forRoot({
+            defaultLanguage: 'en',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
+
+        BrowserAnimationsModule
+    ],
+    declarations: [
+        AppComponent,
+        LanguagesComponent,
+        // LoaderComponent,
+        TeamsComponent,
+        ScoresComponent,
+    ],
+    bootstrap: [AppComponent],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            useFactory: initTranslation,
+            deps: [TranslateService],
+            multi: true
+        },
+    ],
+    exports: [],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 
 export class AppModule { }

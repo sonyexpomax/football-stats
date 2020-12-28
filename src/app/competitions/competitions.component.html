@@ -1,10 +1,7 @@
 <h2>{{'competitions' | translate}}</h2>
 
 <div class="competitions">
-  <div *ngIf="isLoading">
-    <loader></loader>
-  </div>
-
+  <div *ngIf="isLoading"><app-loader></app-loader></div>
   <div class="competitions-list">
     <div *ngFor="let competition of competitions" class="competitions-list-item">
       <mat-card>
