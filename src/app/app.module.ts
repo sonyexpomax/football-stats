@@ -48,7 +48,6 @@ export function initTranslation(translate: TranslateService) {
     declarations: [
         AppComponent,
         TeamsComponent,
-        ScoresComponent,
     ],
     bootstrap: [AppComponent],
     providers: [

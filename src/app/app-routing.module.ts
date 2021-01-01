@@ -22,7 +22,11 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [{ path: 'standings/:id', component: StandingsComponent }],
   },
-  { path: 'scores/:id', component: ScoresComponent },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [{ path: 'scores/:id', component: ScoresComponent }],
+  },
   { path: 'teams/:id', component: TeamsComponent },
   {
     path: 'competitions',
@@ -33,6 +37,11 @@ const routes: Routes = [
     path: 'standings/:id',
     loadChildren: () =>
       import('./standings/standings.module').then((m) => m.StandingsModule),
+  },
+  {
+    path: 'scores/:id',
+    loadChildren: () =>
+      import('./scores/scores.module').then((m) => m.ScoresModule),
   },
 ];
 

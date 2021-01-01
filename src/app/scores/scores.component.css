@@ -1,39 +1,40 @@
+.container {
+  position: relative;
+  min-height: 800px;
+}
+
+.table-container {
+  position: relative;
+  max-height: 800px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-date{
+  max-width: 124px;
+}
+
+.mat-row:nth-child(2n) {
+  background: #eeeeee;
+}
+
+.mat-row {
+  height: 37px;
+}
+
+.mat-header-cell {
+  font-size: 14px;
+  font-weight: bold;
+}
+
 h2 {
-  margin: 0 0 2em 0;
-  padding: 0;
-  width: 15em;
-}
-.scores {
-  padding: 1%;
-  background: #efefef;
-}
-.scores-list {
-  width: 100%;
-  display: grid;
-
-  gap: 10px;
-  grid-template-columns: auto auto auto;
-}
-.scores-list-item {
-  /*margin: 20px;*/
-}
-
-.scores-image {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-.mat-card-avatar {
-  height: 32px;
-  width: 32px;
-  border-radius: unset!important;
-  overflow: hidden;
-}
-
-.mat-card-image {
-  height: 32px;
-  width: 33px;
-  margin: 0!important;
-  padding: 0;
-
+  text-align: center;
 }

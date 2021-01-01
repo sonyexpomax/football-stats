@@ -1,21 +1,30 @@
-<h2>Matches</h2>
-
-<div class="scores">
-  <div class="scores-list">
-    <div *ngFor="let match of scores" class="scores-list-item">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>{{match.homeTeam.name}} - {{match.awayTeam.name}}</mat-card-title>
-          <mat-card-subtitle>{{match.score.fullTime.homeTeam}} - {{match.score.fullTime.awayTeam}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-title>{{match.matchday}}</mat-card-title>
-        <mat-card-title>{{match.utcDate}}</mat-card-title>
-        <mat-card-title>{{match.status}}</mat-card-title>
-        <mat-card-content>
-          <p>{{match.referees.join(',')}}</p>
-        </mat-card-content>
-      </mat-card>
+<div class="container">
+  <div *ngIf="isLoading; else tableBlock"><app-loader></app-loader></div>
+  <ng-template #tableBlock>
+    <h2>{{title}}</h2>
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource">
+        <ng-container cdkColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let match">{{match.utcDate | date}}</td>
+        </ng-container>
+        <ng-container cdkColumnDef="home">
+          <th mat-header-cell *matHeaderCellDef> Home </th>
+          <td mat-cell *matCellDef="let match">{{match.homeTeam.name}}</td>
+        </ng-container>
+        <ng-container cdkColumnDef="goals">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let match">{{match.score.fullTime.homeTeam}} - {{match.score.fullTime.awayTeam}}</td>
+        </ng-container>
+        <ng-container cdkColumnDef="away">
+          <th mat-header-cell *matHeaderCellDef>Away</th>
+          <td mat-cell *matCellDef="let match">{{match.awayTeam.name}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
-  </div>
+    <mat-paginator #scheduledOrdersPaginator [pageSizeOptions]="[20, 40, 60, 100]" [pageSize]="20"></mat-paginator>
+  </ng-template>
 </div>
 
