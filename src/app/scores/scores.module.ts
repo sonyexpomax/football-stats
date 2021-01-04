@@ -5,9 +5,10 @@ import {LoaderModule} from '../common/loader/loader.module';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../material.module';
 import {TranslateModule} from '@ngx-translate/core';
+import {DateNextPipe} from '../common/pipes/date-next.pipe';
 
 @NgModule({
-  declarations: [ScoresComponent],
+    declarations: [ScoresComponent, DateNextPipe],
   imports: [
     CommonModule,
     LoaderModule,

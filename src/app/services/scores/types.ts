@@ -45,11 +45,11 @@ export interface Score {
   'homeTeam': {
     'id': number,
     'name': string
-  } | string;
+  };
   'awayTeam': {
     'id': number,
     'name': string
-  } | string;
+  };
   'referees': Array<Referee>;
 }
 
@@ -110,4 +110,9 @@ export type ScoresResponse = {
     'lastUpdated': string,
   },
   'matches': Array<Score>
+};
+
+export type DateRange = {
+  dateFrom: string;
+  dateTo: string;
 };

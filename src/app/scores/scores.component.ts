@@ -1,22 +1,24 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Score, ScoreData} from 'src/app/services/scores/types';
+import {DateRange, Score, ScoreData, ScoresResponse} from 'src/app/services/scores/types';
 import { ScoresService } from 'src/app/services/scores/scores.service';
 import { ActivatedRoute } from '@angular/router';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {finalize} from 'rxjs/operators';
 import {MatSort} from '@angular/material/sort';
+import {DateNextPipe} from '../common/pipes/date-next.pipe';
 
 @Component({
   selector: 'app-scores',
   templateUrl: './scores.component.html',
-  styleUrls: ['./scores.component.css']
+  styleUrls: ['./scores.component.css'],
+  providers: [ DateNextPipe ]
 })
 
 export class ScoresComponent implements AfterViewInit {
   scores: Array<Score> = [];
   displayedColumns: string[] = ['date', 'home', 'goals', 'away' ];
-  dataSource = new MatTableDataSource<Score>([]);
+  dataSource = new MatTableDataSource<ScoreData>([]);
   isLoading = false;
   title = '';
 
@@ -26,6 +28,7 @@ export class ScoresComponent implements AfterViewInit {
   constructor(
     private scoresService: ScoresService,
     private route: ActivatedRoute,
+    private nextDate: DateNextPipe,
   ) { }
 
   ngAfterViewInit(): void {
@@ -33,12 +36,12 @@ export class ScoresComponent implements AfterViewInit {
   }
 
 
-  getScores(): void {
+  getScores(date?: DateRange): void {
     this.isLoading = true;
     const id = +this.route.snapshot.paramMap.get('id');
-    this.scoresService.getScores(id)
+    this.scoresService.getScores(id, date)
       .pipe(finalize(() => this.isLoading = false))
-      .subscribe(data => {
+      .subscribe((data: ScoresResponse) => {
         this.title = `${data.competition.name} (${data.competition.area.name})`;
         this.scores = data.matches;
         const newData = data.matches.map(item => ({...item, homeTeam: item.homeTeam.name, awayTeam: item.awayTeam.name}));
@@ -52,5 +55,13 @@ export class ScoresComponent implements AfterViewInit {
     const filterValue = (event.target as HTMLInputElement).value;
     console.log(filterValue, this.dataSource);
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getDate(value?: number) {
+    const date = {
+      dateFrom: Date.now().toString(),
+      dateTo: value ? this.nextDate.transform(value).toDateString() : Date.now().toString(),
+    };
+    console.log(date);
   }
 }
