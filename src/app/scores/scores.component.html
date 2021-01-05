@@ -3,8 +3,8 @@
   <div class="table-container" *ngIf="!isLoading; else loader">
     <div>
       <button mat-raised-button color="primary" (click)="getDate()">Today</button>
-      <button mat-raised-button color="primary" (click)="getDate(1)">Tomorrow</button>
       <button mat-raised-button color="primary" (click)="getDate(7)">Up for 7 days</button>
+      <button mat-raised-button color="primary" (click)="getDate(30)">Up for month</button>
     </div>
     <mat-form-field>
       <mat-label>Filter by team</mat-label>
@@ -33,7 +33,9 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
+  <div class="mat-elevation-z8 pagination">
   <mat-paginator #scheduledOrdersPaginator [pageSizeOptions]="[20, 40, 60, 100]" [pageSize]="20"></mat-paginator>
+  </div>
 </div>
 <ng-template #loader>
   <app-loader full="full"></app-loader>

@@ -59,9 +59,10 @@ export class ScoresComponent implements AfterViewInit {
 
   getDate(value?: number) {
     const date = {
-      dateFrom: Date.now().toString(),
-      dateTo: value ? this.nextDate.transform(value).toDateString() : Date.now().toString(),
+      dateFrom: this.nextDate.transform(),
+      dateTo: value ? this.nextDate.transform(value) : this.nextDate.transform(),
     };
     console.log(date);
+    this.getScores(date);
   }
 }
