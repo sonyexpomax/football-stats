@@ -24,7 +24,7 @@ const availableCompetitions = [
 
 export class CompetitionsComponent implements OnInit {
   competitions: Array<Competition>;
-  isLoading = false
+  isLoading = false;
 
   constructor(
     private teamsService: CompetitionsService,
@@ -34,7 +34,7 @@ export class CompetitionsComponent implements OnInit {
     this.getTeams();
   }
 
-  getTeams(): void {    
+  getTeams(): void {
     this.isLoading = true;
     this.teamsService.getCompetitions()
     .pipe(finalize(() => this.isLoading = false))

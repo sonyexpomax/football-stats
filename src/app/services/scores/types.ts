@@ -53,6 +53,48 @@ export interface Score {
   'referees': Array<Referee>;
 }
 
+export interface ScoreData {
+  'id': number;
+  'season': {
+    'id': number,
+    'startDate': string,
+    'endDate': string,
+    'currentMatchday': number
+  };
+  'utcDate': string;
+  'status': string;
+  'matchday': 1;
+  'stage': string;
+  'group': string;
+  'lastUpdated': string;
+  'odds': {
+    'msg': string
+  };
+  'score': {
+    'winner': string,
+    'duration': string,
+    'fullTime': {
+      'homeTeam': number,
+      'awayTeam': number
+    },
+    'halfTime': {
+      'homeTeam': number,
+      'awayTeam': number
+    },
+    'extraTime': {
+      'homeTeam': null | string,
+      'awayTeam': null | string
+    },
+    'penalties': {
+      'homeTeam': null | string,
+      'awayTeam': null | string
+    }
+  };
+  'homeTeam': string;
+  'awayTeam': string;
+  'referees': Array<Referee>;
+}
+
 export type ScoresResponse = {
   'count': number,
   'filters': {},
@@ -68,4 +110,9 @@ export type ScoresResponse = {
     'lastUpdated': string,
   },
   'matches': Array<Score>
+};
+
+export type DateRange = {
+  dateFrom: string;
+  dateTo: string;
 };

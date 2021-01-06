@@ -5,6 +5,7 @@ import { ScoresComponent } from './scores/scores.component';
 import { CompetitionsComponent } from './competitions/competitions.component';
 import { StandingsComponent } from './standings/standings.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import {MatchComponent} from './match/match.component';
 
 const routes: Routes = [
   {
@@ -22,8 +23,18 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [{ path: 'standings/:id', component: StandingsComponent }],
   },
-  { path: 'scores/:id', component: ScoresComponent },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [{ path: 'scores/:id', component: ScoresComponent }],
+  },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [{ path: 'match/:id', component: MatchComponent }],
+  },
   { path: 'teams/:id', component: TeamsComponent },
+  { path: 'match/:id', component: MatchComponent },
   {
     path: 'competitions',
     loadChildren: () =>
@@ -33,6 +44,11 @@ const routes: Routes = [
     path: 'standings/:id',
     loadChildren: () =>
       import('./standings/standings.module').then((m) => m.StandingsModule),
+  },
+  {
+    path: 'scores/:id',
+    loadChildren: () =>
+      import('./scores/scores.module').then((m) => m.ScoresModule),
   },
 ];
 

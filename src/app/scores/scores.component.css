@@ -1,39 +1,64 @@
+.container {
+  position: relative;
+  min-height: 800px;
+}
+
+.table-container {
+  position: relative;
+  max-height: 800px;
+  overflow: auto;
+}
+
+.mat-table {
+  width: 98%;
+  margin: 0 20px;
+}
+
+.mat-column-date{
+  max-width: 124px;
+}
+
+.cdk-column-details{
+  width: 100px;
+  text-align: end;
+}
+
+.mat-row:nth-child(2n) {
+  background: #eeeeee;
+}
+
+.mat-row {
+  height: 40px;
+}
+
+.mat-header-cell {
+  font-size: 14px;
+  font-weight: bold;
+}
+
 h2 {
-  margin: 0 0 2em 0;
-  padding: 0;
-  width: 15em;
-}
-.scores {
-  padding: 1%;
-  background: #efefef;
-}
-.scores-list {
-  width: 100%;
-  display: grid;
-
-  gap: 10px;
-  grid-template-columns: auto auto auto;
-}
-.scores-list-item {
-  /*margin: 20px;*/
+  margin: 0;
+  padding: 10px 20px 0 20px;
+  width: 20em;
 }
 
-.scores-image {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-.mat-card-avatar {
-  height: 32px;
-  width: 32px;
-  border-radius: unset!important;
-  overflow: hidden;
+.mat-form-field {
+  font-size: 14px;
+  width: 32.7em;
+  padding-left: 20px;
 }
 
-.mat-card-image {
-  height: 32px;
-  width: 33px;
-  margin: 0!important;
-  padding: 0;
+.mat-elevation-z8.pagination {
+  width: 98%;
+  margin: 0 20px;
+}
 
+.mat-raised-button {
+  min-width: 100px;
+  margin-right: 10px;
+}
+
+.table-filters {
+  margin-left: 20px;
+  margin-top: 10px;
 }

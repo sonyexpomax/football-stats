@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 /**
  * @title Basic progress-spinner
@@ -9,4 +9,6 @@ import {Component} from '@angular/core';
   styleUrls: ['./loader.component.css']
 })
 
-export class LoaderComponent {}
+export class LoaderComponent {
+  @Input() full?: boolean;
+}

@@ -34,7 +34,10 @@ export class StandingsComponent implements OnInit {
   getStandings(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.standingsService.getStandings(id)
-      .subscribe(data => this.teams = data.standings[0].table);
+      .subscribe(data => {
+        console.log(data);
+        this.teams = data.standings[0].table;
+      });
   }
 
 }

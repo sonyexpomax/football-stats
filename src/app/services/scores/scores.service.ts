@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { ScoresResponse } from './types';
+import {DateRange, Score, ScoresResponse} from './types';
 import { MessageService } from '../../message.service';
 
 @Injectable({ providedIn: 'root' })
@@ -20,9 +20,10 @@ export class ScoresService {
     private messageService: MessageService) { }
 
   /** GET heroes from the server */
-  getScores(id: number): Observable<ScoresResponse> {
+  getScores(id: number, date?: DateRange): Observable<ScoresResponse> {
     return this.http.get<any>(`${this.competitionsUrl}/${id}/matches`, {
-      headers: {'X-Auth-Token': '4ae8565177dc4711b4144baa0d7a5349'}
+      headers: {'X-Auth-Token': '4ae8565177dc4711b4144baa0d7a5349'},
+      params: date,
     })
       .pipe(
         catchError(this.handleError<ScoresResponse>('deleteHero'))
