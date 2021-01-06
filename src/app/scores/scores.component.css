@@ -14,13 +14,13 @@
   margin: 0 20px;
 }
 
-.mat-column-number,
-.mat-column-state {
-  max-width: 64px;
-}
-
 .mat-column-date{
   max-width: 124px;
+}
+
+.cdk-column-details{
+  width: 100px;
+  text-align: end;
 }
 
 .mat-row:nth-child(2n) {
@@ -28,7 +28,7 @@
 }
 
 .mat-row {
-  height: 37px;
+  height: 40px;
 }
 
 .mat-header-cell {
@@ -39,16 +39,26 @@
 h2 {
   margin: 0;
   padding: 10px 20px 0 20px;
-  width: 15em;
+  width: 20em;
 }
 
 .mat-form-field {
   font-size: 14px;
-  width: 15em;
+  width: 32.7em;
   padding-left: 20px;
 }
 
 .mat-elevation-z8.pagination {
-  width: 97.2%;
+  width: 98%;
   margin: 0 20px;
+}
+
+.mat-raised-button {
+  min-width: 100px;
+  margin-right: 10px;
+}
+
+.table-filters {
+  margin-left: 20px;
+  margin-top: 10px;
 }

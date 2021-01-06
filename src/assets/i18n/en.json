@@ -3,5 +3,6 @@
   "teams": "Teams",
   "scores": "Scores",
   "standings": "Standings",
-  "season_starts": "Season in {{name}} starts on {{start}} and ends on {{end}}"
+  "season_starts": "Season in {{name}} starts on {{start}} and ends on {{end}}",
+  "details": "Details"
 }

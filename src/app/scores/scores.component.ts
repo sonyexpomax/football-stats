@@ -17,7 +17,7 @@ import {DateNextPipe} from '../common/pipes/date-next.pipe';
 
 export class ScoresComponent implements AfterViewInit {
   scores: Array<Score> = [];
-  displayedColumns: string[] = ['date', 'home', 'goals', 'away' ];
+  displayedColumns: string[] = ['utcDate', 'home', 'goals', 'away', 'details' ];
   dataSource = new MatTableDataSource<ScoreData>([]);
   isLoading = false;
   title = '';
@@ -44,7 +44,7 @@ export class ScoresComponent implements AfterViewInit {
       .subscribe((data: ScoresResponse) => {
         this.title = `${data.competition.name} (${data.competition.area.name})`;
         this.scores = data.matches;
-        const newData = data.matches.map(item => ({...item, homeTeam: item.homeTeam.name, awayTeam: item.awayTeam.name}));
+        const newData = data.matches.map(item => ({...item, homeTeam: item.homeTeam.name, awayTeam: item.awayTeam.name }));
         this.dataSource = new MatTableDataSource<ScoreData>(newData);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -53,16 +53,14 @@ export class ScoresComponent implements AfterViewInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    console.log(filterValue, this.dataSource);
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   getDate(value?: number) {
     const date = {
       dateFrom: this.nextDate.transform(),
-      dateTo: value ? this.nextDate.transform(value) : this.nextDate.transform(),
+      dateTo: value > 1 ? this.nextDate.transform(value) : this.nextDate.transform(),
     };
-    console.log(date);
-    this.getScores(date);
+    value ? this.getScores(date) : this.getScores();
   }
 }

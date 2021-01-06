@@ -12,6 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './layout/layout.module';
+import { MatchComponent } from './match/match.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,6 +49,7 @@ export function initTranslation(translate: TranslateService) {
     declarations: [
         AppComponent,
         TeamsComponent,
+        MatchComponent,
     ],
     bootstrap: [AppComponent],
     providers: [
