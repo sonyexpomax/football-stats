@@ -12,9 +12,9 @@ export class TeamsService {
 
   private teamsUrl = 'https://api.football-data.org/v2/competitions/';  // URL to web api
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  headers= new HttpHeaders({ 
+    'X-Auth-Token': '4ae8565177dc4711b4144baa0d7a5349', 
+  })
 
   constructor(
     private http: HttpClient,
@@ -22,9 +22,7 @@ export class TeamsService {
 
   /** GET heroes from the server */
   getTeams(id: number): Observable<TeamsResponse> {
-    return this.http.get<any>(`${this.teamsUrl}${id}/teams`,
-      {headers: {'X-Auth-Token': '4ae8565177dc4711b4144baa0d7a5349'}}
-      )
+    return this.http.get<any>(`${this.teamsUrl}${id}/teams`, { headers: this.headers })
       .pipe(
         catchError(this.handleError<TeamsResponse>('deleteHero'))
     );

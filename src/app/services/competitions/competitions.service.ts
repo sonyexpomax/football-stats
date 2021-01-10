@@ -12,19 +12,17 @@ export class CompetitionsService {
 
   private competitionsUrl = 'https://api.football-data.org/v2/competitions';  // URL to web api
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
+  headers= new HttpHeaders({ 
+    'X-Auth-Token': '4ae8565177dc4711b4144baa0d7a5349', 
+  })
+  
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
   /** GET heroes from the server */
   getCompetitions(): Observable<CompetitionsResponse> {
-    return this.http.get<any>(this.competitionsUrl, {
-      headers: {'X-Auth-Token': '4ae8565177dc4711b4144baa0d7a5349'}
-    })
+    return this.http.get<any>(this.competitionsUrl, { headers:this.headers })
   }
 
 
