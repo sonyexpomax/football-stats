@@ -2,9 +2,9 @@
   <h2>Matches - {{title}}</h2>
   <div class="table-container" [hidden]="isLoading">
     <div class="table-filters">
-      <button mat-raised-button color="primary" (click)="getDate(1)">Today</button>
-      <button mat-raised-button color="primary" (click)="getDate(7)">Up for 7 days</button>
-      <button mat-raised-button color="primary" (click)="getDate(30)">Up for month</button>
+      <button mat-raised-button color="primary" [ngClass]="{'disabled': disabledBtns[1]}" (click)="getDate(1)">Today</button>
+      <button mat-raised-button color="primary" [ngClass]="{'disabled': disabledBtns[7]}" (click)="getDate(7)">Up for 7 days</button>
+      <button mat-raised-button color="primary" [ngClass]="{'disabled': disabledBtns[30]}" (click)="getDate(30)">Up for month</button>
       <button mat-raised-button color="primary" (click)="getDate()">Clear</button>
     </div>
     <mat-form-field>
@@ -37,7 +37,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No matches found</td>
+        <td class="mat-cell" colspan="4">{{'no_matches' | translate}}</td>
       </tr>
     </table>
   </div>

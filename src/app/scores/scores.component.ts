@@ -21,7 +21,11 @@ export class ScoresComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<ScoreData>([]);
   isLoading = false;
   title = '';
-
+  disabledBtns: {[key in 1 | 7 | 30]: boolean} = {
+    1: false,
+    7: false,
+    30: false
+ };
   @ViewChild('scheduledOrdersPaginator') paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -56,11 +60,18 @@ export class ScoresComponent implements AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getDate(value?: number) {
+  getDate(value?: 1 | 7 | 30) {
+    const container = Object.keys(this.disabledBtns).reduce( (acc, item) => {
+      acc[item] = value === +item;
+      return acc;
+    }, {});
+    this.disabledBtns = container as {[key in 1 | 7 | 30]: boolean};
+
     const date = {
       dateFrom: this.nextDate.transform(),
       dateTo: value > 1 ? this.nextDate.transform(value) : this.nextDate.transform(),
     };
+    console.log(this.disabledBtns);
     value ? this.getScores(date) : this.getScores();
   }
 }
